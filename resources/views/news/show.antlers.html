@@ -5,9 +5,13 @@
 <div class="bg-gray-900 border border-indigo-600 rounded-lg p-4 mb-8">
   <ul>
     {{ locales }}
-      {{ if locale:handle !== site:handle }}
-      <li><a href="{{ url }}" class="hover:underline">View in {{ locale:name }}</a></li>
-      {{ /if }}
+      <li><a href="{{ url }}" class="hover:underline">
+        {{ if locale:handle == site:handle }}
+          <strike>View in {{ locale:name }}</strike>
+        {{ else }}
+          View in {{ locale:name }}
+        {{ /if }}
+      </a></li>
     {{ /locales }}
   </ul>
 </div>
