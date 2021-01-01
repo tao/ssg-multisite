@@ -7,8 +7,12 @@
         <title>{{ title ?? site:name }}</title>
         <link rel="stylesheet" href="{{ mix src='css/tailwind.css' }}">
     </head>
-    <body class="{{ site:handle == 'default' ? 'bg-gray-800' : 'bg-indigo-900' }} font-sans leading-normal text-white">
-
+    <body class="
+      {{ site:handle == 'default' ? 'bg-gray-800' : 'bg-indigo-900' }}
+      font-sans leading-normal text-white
+      template__{{ template }}
+      page__{{ if segment_1 }}{{ segment_1 }}{{ else }}home{{ endif }}{{ if segment_2 }}--{{ segment_2 }}{{ endif }}
+    ">
         {{ partial:partials/nav }}
 
         <div class="mx-auto max-w-5xl pt-16 flex justify-center text-white px-8">
